@@ -31,6 +31,8 @@
 ## Оператор объединения с null ??. Проверка на null и присваивание значения по умолчанию (с версии 7.0)
     $login;
     $login = $login ?? 'Гость';  // Гость
+
+[## Приоритет операторов](https://www.php.net/manual/ru/language.operators.precedence.php) 
     
     
     
