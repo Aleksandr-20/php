@@ -18,7 +18,7 @@ $companies = [
     <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
-    <form>
+    <form method="post" action="handler.php">
         <h2>Заявка на выбор яхты</h2>
         <fieldset>
             <legend>Контактная информация</legend>
@@ -43,7 +43,11 @@ $companies = [
             <div>
                 <label for="companies">Укажите производителя:</label>
                 <select id="companies" name="company">
-                   <!-- TODO: options -->
+                    <?php foreach ($companies as $company): ?>
+                    <option value="<?= $company['id'] ?>">
+                        <?= $company['name'] ?>
+                    </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
@@ -76,12 +80,14 @@ $companies = [
 
         <div>
             <label>
-                Согласие на обработку персональных данных: <input type="checkbox" name="agree">
+                Согласие на обработку персональных данных:
+                <input type="checkbox" name="agree">
             </label>
         </div>
 
         <input type="submit" value="Подобрать">
     </form>
 
+<script src="/post/form.js"></script>
 </body>
 </html>
