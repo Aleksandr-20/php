@@ -10,8 +10,10 @@
         var_dump($post);
     }
 ?>
-
 <a href="lesson4.php?count=3&id=56">GET запрос</a>
+<!-- передача массива параметров -->
+<a href="lesson4.php?colors[0]=white&colors[1]=blue">GET запрос</a>
+<!--<a href="lesson4.php?colors=[1, 5, 2, 90]">GET запрос</a>-->
 
 <form method="post" action="lesson4.php">
     <input type="text" placeholder="логин" name="login">

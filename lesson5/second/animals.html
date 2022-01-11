@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--// по категории,
+// возрасту,
+// наличию прививок-->
+<form name="animals">
+    FormData
+    category: dog
+    vac: yes
+
+    <label for="category">Категория</label>
+    <select id="category" name="category">
+        <option value="cat">Кошки</option>
+        <option value="dog">Собаки</option>
+        <option value="any" selected>Не имеет значения</option>
+    </select>
+
+    <label for="age">Возраст</label>
+    <input id="age" name="age" type="number">
+
+    <label>Есть<input type="radio" value="yes" name="vac"></label>
+    <label>
+        Не имеет значения<input type="radio" value="no" name="vac" checked>
+    </label>
+
+    <input type="submit" value="Подобрать">
+</form>
+
+<script src="js/animals.js"></script>
+</body>
+</html>
