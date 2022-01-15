@@ -1,3 +1,8 @@
+// формирование строки запроса с параметрами:
+let url = new URL('строка запроса'); // например, /handler.php
+url.searchParams.set('параметр', 'значение');
+url.searchParams.set('параметр2', 'значение');
+
 // fetch 1
 fetch('строка запроса' /* + '?param=value' - если нужно передать данные в строке запроса */, {
     method: 'название http метода', /* если используется не GET запрос */
@@ -15,9 +20,14 @@ fetch('строка запроса' /* + '?param=value' - если нужно п
 
 // fetch 2
 async function makeRequest(){
-    let response = await fetch('строка запроса' /* + '?param=value' - если нужно передать данные в строке запроса */);
+    let response = await fetch('строка запроса' /* + '?param=value' - если нужно передать данные в строке запроса */, {
+                method: 'http метод',
+                body: 'value',
+                headers: {}
+            }
+        );
 
-//  получение ответа
+    //  получение ответа
     if (response.ok) { // true, если HTTP-статус в диапазоне 200-299
         let status = response.status; // статус ответа
 
@@ -30,7 +40,8 @@ async function makeRequest(){
         }
 
         // получение ответа из тела сообщения
-        let result = await response.json(); // .json() / .blob() / .formData()
+        let result = await response.json(); // .text() / .blob() / .formData()
+
     } else {
         let status = response.status; // статус ответа
     }
@@ -57,8 +68,6 @@ url.searchParams.set('параметр', 'значение');
 xhr.open(
     'название http метода: GET, POST, PUT, PATCH, DELETE ...',
     url);
-
-xhr.open('GET', url);
 */
 
 // передать заголовки
@@ -67,14 +76,16 @@ xhr.setRequestHeader('название заголовка', 'значение');
 // указать ожидаемый тип ответа
 xhr.responseType = 'json'; // text - строка, blob - бинарные данные
 
-xhr.timeout = 10000; // ждет 10000 миллисекунд и прерывается, если сервер не ответит за это время
+xhr.timeout = 10000; // ждет 10000 миллисекунд и прерывается,
+// если сервер не ответит за это время
 
 // отправка
 xhr.send( /* если нужно передать данные в теле сообщения */ );
+xhr.send();
 
 // получение ответа
 xhr.onload = function() {
-    // xhr.status - статус отвера (например, 200)
+    // xhr.status - статус ответа (например, 200)
     // xhr.statusText - текст статуса (например OK)
     if (xhr.status !== 200) {
         // ошибка запроса, например, ресурс не был найден
@@ -93,10 +104,10 @@ xhr.onprogress = function(event) {
         let total = event.total; // всего байт
         let loaded = event.loaded; // загружено байт
     } else {
-        // загружено байт, если в ответе нет заголовка Content-Length с информацией о размере
+        // загружено байт, если в ответе нет заголовка
+        // Content-Length с информацией о размере
         let loaded = event.loaded;
     }
-
 };
 
 // если запрос не удалось выполнить
