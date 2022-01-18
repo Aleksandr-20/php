@@ -15,9 +15,11 @@
 `session_destroy(); `- закрытие сессии
 
 ## Директивы php.ini
-`session.cookie_httponly = on` - сессионная cookie не будет доступна в js
+`session.cookie_httponly = on` - 
+сессионная cookie не будет доступна в js
 
-`session.use_only_cookies = on`- идентификаторы сессии передавать только в cookie
+`session.use_only_cookies = on`- 
+идентификаторы сессии передавать только в cookie
 
 `session.use_trans_sid = off`
 
@@ -25,8 +27,15 @@
 
 `session.cookie_lifetime = 0`
 
-`session.gc_maxlifetime = 1800` - удаление файлов сессий, время в секундах, после которого файл мб удален
+`session.gc_maxlifetime = 1800` - 
+удаление файлов сессий, время в секундах, 
+после которого файл мб удален
 
-`session.gc_probability = 1, session.gc_divisor = 1000` - вероятностная сборка мусора gc_probability/gc_divisor
+`session.gc_probability = 1, session.gc_divisor = 1000` - 
+вероятностная сборка мусора gc_probability/gc_divisor
 
-
+`session_id()` - возвращает идентификатор сессии
+`session_id(id)` - устанавливает идентификатор сессии, вызов до session_start()
+`session_name()` - возвращает имя сессии
+`session_name(name)` - устанавливает имя сессии, вызов до session_start()
+`session_regenerate_id()`
