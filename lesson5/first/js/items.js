@@ -13,3 +13,4 @@ document.forms.items.addEventListener('submit', function (event){
             else if (answer == 0) out.innerText = 'Товара нет в наличии';
         });
 });
+

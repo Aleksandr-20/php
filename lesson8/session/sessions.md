@@ -39,3 +39,5 @@
 `session_name()` - возвращает имя сессии
 `session_name(name)` - устанавливает имя сессии, вызов до session_start()
 `session_regenerate_id()`
+
+
